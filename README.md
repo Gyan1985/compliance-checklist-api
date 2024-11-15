@@ -1,24 +1,62 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Compliance Checklist
 
-Things you may want to cover:
+This README provides the steps necessary to get the application up and running.
 
-* Ruby version
+## Requirements
 
-* System dependencies
+- Ruby: 3.3.6
+- Rails: 8.0.0
+- PostgreSQL
 
-* Configuration
+## Setup Instructions
 
-* Database creation
+### 1. Install Ruby and Rails
 
-* Database initialization
+Ensure you have Ruby 3.3.6 and Rails 8.0.0 installed.
 
-* How to run the test suite
+You can install Ruby using `rbenv` or `rvm`, and Rails using the following command:
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+gem install rails -v 8.0.0
+```
 
-* Deployment instructions
+### 2. Install Required Gems
 
-* ...
+Run the following command to install all the required gems:
+
+```bash
+bundle install
+```
+
+### 3. Configure PostgreSQL
+
+Ensure PostgreSQL is installed and running on your system.
+
+- Configure your PostgreSQL username and password in the application's database configuration file.
+
+  Copy the sample configuration file:
+
+  ```bash
+  cp config/database.yml.sample config/database.yml
+  ```
+
+  Edit `config/database.yml` to set your PostgreSQL username and password.
+
+### 4. Set Up the Database
+
+Run the following command to create the database:
+
+```bash
+rails db:create
+```
+
+### 5. Start the Rails Server
+
+Once the database is set up, you can start the Rails server:
+
+```bash
+rails server
+```
+
+The application should now be up and running at [http://localhost:3000](http://localhost:3000).
