@@ -46,4 +46,5 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 end
 
-
+# Pagination 
+gem "pagy", "~> 9.2"

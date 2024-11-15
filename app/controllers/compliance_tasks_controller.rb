@@ -1,12 +1,18 @@
 class ComplianceTasksController < ApplicationController
+  include Pagy::Backend
 
   def index
     tasks = ComplianceTask.all
     tasks = tasks.where(status: params[:status]) if params[:status].present?
     tasks = tasks.where("due_date < ?", params[:due_date]) if params[:due_date].present?
 
-    render json: { tasks: tasks, message: "Compliance tasks retrieved successfully" }, status: :ok
-  end
+    pagy, tasks = pagy(tasks, items: 10)
+
+    render json: {
+      tasks: tasks,
+      pagy: pagy_metadata(pagy),
+      message: "Compliance tasks retrieved successfully"
+    }, status: :ok  end
 
   def show
     task = ComplianceTask.find_by(id: params[:id])
