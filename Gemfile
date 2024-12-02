@@ -50,4 +50,4 @@ group :development, :test do
 end
 
 # Pagination 
-gem "pagy", "~> 9.2"
+gem "pagy", "~> 9.3"
